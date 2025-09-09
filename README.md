@@ -1,67 +1,10 @@
-<!-- ## Foundry
+# Validating v29 Interop Features
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+To validate interop features on testnet, we deployed a simple messaging contract on both [Era testnet](https://sepolia.explorer.zksync.io/address/0xaf1E4adf15767F0C556BD414628Ff22f08cf8C68#contract#contract-info) and [Abstract testnet](https://explorer.testnet.abs.xyz/address/0xaf1E4adf15767F0C556BD414628Ff22f08cf8C68#contract#contract-info). We then sent a message from each of them with the intention of validating it from the other ([Era -> Abstract](https://sepolia.explorer.zksync.io/tx/0x600c0495531b763a95892aa8df5183f582309944aebc55cebfb182df54a51041#overview), [Abstract -> Era](https://explorer.testnet.abs.xyz/tx/0x221a31b4ad823b61b2f07f61c725c7eeea728c25030bab6a38809de362ba488e#overview)). Only after each of the containing batches gets executed on Gateway can we validate interop features. 
 
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
+The related parameters are defined inside [`interop.test.ts`](./test/interop.test.ts) file. To validate the interop features simply run:
 
 ```shell
-$ forge build
+yarn install
+yarn test
 ```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
- -->
