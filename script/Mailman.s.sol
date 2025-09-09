@@ -13,30 +13,4 @@ contract MailmanScript is Script {
         mailman = new Mailman();
         vm.stopBroadcast();
     }
-
-    function sendMessage() public {
-        vm.startBroadcast();
-        mailman.sendMessage("Hello, world!");
-        vm.stopBroadcast();
-    }
-
-    function verifyMessage(
-        uint16 txNumberInBatch,
-        address sender,
-        string memory message,
-        uint256 senderChainId,
-        uint256 batchNumber,
-        bytes32[] memory proof
-    ) public {
-        L2Message memory message = L2Message({
-            txNumberInBatch: txNumberInBatch,
-            sender: sender,
-            data: abi.encode(keccak256(abi.encode(message)))
-        });
-
-        vm.startBroadcast();
-        bool result = mailman.verifyMessage(senderChainId, batchNumber, 0, message, proof);
-        console.log("Message verified:", result);
-        vm.stopBroadcast();
-    }
 }
