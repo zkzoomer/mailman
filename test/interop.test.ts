@@ -1,7 +1,7 @@
 import * as zksync from 'zksync-ethers';
 
 // Import the Mailman ABI
-import MailmanABI from '../zkout/Mailman.sol/Mailman.json';
+import MailmanABI from '../out/Mailman.sol/Mailman.json';
 
 // Mailman contract addresses on Era and Abstract testnets
 // https://sepolia.explorer.zksync.io/address/0xaf1E4adf15767F0C556BD414628Ff22f08cf8C68
