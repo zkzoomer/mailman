@@ -25,5 +25,14 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+
+      - name: Run Forge build
+        run: forge build --sizes
+        id: build
+
       - name: Run tests
         run: yarn test
